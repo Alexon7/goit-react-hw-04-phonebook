@@ -15,10 +15,6 @@ export const App = () => {
     () => JSON.parse(localStorage.getItem('contacts')) ?? []
   );
   const [filter, setFilter] = useState('');
-  // state = {
-  //   contacts: [],
-  //   filter: '',
-  // };
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -55,14 +51,14 @@ export const App = () => {
     );
   };
 
-  // const filteredContact = filteredContacts();
+  const filteredContact = filteredContacts();
   return (
     <Container>
       <MainTitle>Phonebook 📱</MainTitle>
       <ContactForm onFormSubmit={onFormSubmit} btnText="Create" />
       <Title>Contacts 📑</Title>
       <Filter onInputChange={onInputChange} />
-      <ContactList data={filteredContacts} deleteContact={deleteContact} />
+      <ContactList data={filteredContact} deleteContact={deleteContact} />
       <GlobalStyleComponent />
     </Container>
   );
