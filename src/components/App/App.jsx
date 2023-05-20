@@ -39,17 +39,15 @@ export const App = () => {
     setContacts(contacts.filter(contact => contact.id !== id));
   };
 
-  const onInputChange = event => {
-    setFilter({
-      filter: event.currentTarget.value,
-    });
+  const onInputChange = e => {
+    const { value } = e.target;
+    setFilter(value);
   };
 
-  const filteredContacts = () => {
-    return contacts.filter(contact =>
+  const filteredContacts = () =>
+    contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
-  };
 
   const filteredContact = filteredContacts();
   return (
